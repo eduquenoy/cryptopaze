@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-27 20:24+0200\n"
+"PO-Revision-Date: 2020-04-30 17:41+0200\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.3\n"
+
+#: index.php:38
+msgid "Grade found"
+msgstr "Note trouvée"
+
+#: index.php:47
+msgid "Code incorrect"
+msgstr "Code incorrect"
+
+#: index.php:54 index.php:62
+msgid "IP Address "
+msgstr "Adresse IP"
+
+#: index.php:86
+msgid "Attendance Recorded..."
+msgstr "Participation enregistrée..."
+
+#: index.php:106
+msgid "Settings"
+msgstr "Réglages"
+
+#: index.php:117
+msgid "Clear data"
+msgstr "Effacer les données"
+
+#: index.php:125
+msgid "Code"
+msgstr "Code"
+
+#: index.php:126
+msgid "Send a grade"
+msgstr "Envoyer une note"
+
+#: index.php:127
+msgid ""
+"This can be a prefix of an IP address like \"142.16.41\" or if it starts "
+"with a \"/\" it can be a regular expression (PHP syntax)"
+msgstr ""
+
+#: index.php:142 index.php:143
+msgid "Use the settings link to configure the attendance code."
+msgstr ""
+
+#: index.php:145
+msgid "You can use the settings link to change the attendance code."
+msgstr ""
+
+#: index.php:153
+msgid "Enter grade:"
+msgstr ""
+
+#: index.php:155
+msgid "Record attendance"
+msgstr ""
+
+#: index.php:169
+msgid "User"
+msgstr ""
+
+#: index.php:169
+msgid "Attendance"
+msgstr ""
+
+#: index.php:169
+msgid "IP Address"
+msgstr ""
