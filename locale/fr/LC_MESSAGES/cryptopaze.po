@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 20:24+0200\n"
-"PO-Revision-Date: 2020-04-30 17:41+0200\n"
+"PO-Revision-Date: 2020-05-03 11:13+0200\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgstr "Code incorrect"
 
 #: index.php:54 index.php:62
 msgid "IP Address "
-msgstr "Adresse IP"
+msgstr "Adresse IP "
 
 #: index.php:86
 msgid "Attendance Recorded..."
@@ -54,31 +54,36 @@ msgid ""
 "This can be a prefix of an IP address like \"142.16.41\" or if it starts "
 "with a \"/\" it can be a regular expression (PHP syntax)"
 msgstr ""
+"Il peut s'agir d'un préfixe d'adresse IP comme \"142.16.41\" ou, s'il "
+"commence par un \"/\", il peut s'agir d'une expression régulière "
+"(syntaxe PHP)"
 
 #: index.php:142 index.php:143
 msgid "Use the settings link to configure the attendance code."
-msgstr ""
+msgstr "Utilisez le lien \"Réglages\" pour configurer le code de présence."
 
 #: index.php:145
 msgid "You can use the settings link to change the attendance code."
 msgstr ""
+"Vous pouvez utiliser le lien des réglages pour modifier le code de "
+"présence."
 
 #: index.php:153
 msgid "Enter grade:"
-msgstr ""
+msgstr "Saisir la note :"
 
 #: index.php:155
 msgid "Record attendance"
-msgstr ""
+msgstr "Enregistrer la présence"
 
 #: index.php:169
 msgid "User"
-msgstr ""
+msgstr "Usager"
 
 #: index.php:169
 msgid "Attendance"
-msgstr ""
+msgstr "Présence"
 
 #: index.php:169
 msgid "IP Address"
-msgstr ""
+msgstr "Adresse IP"

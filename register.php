@@ -1,18 +1,18 @@
 <?php
 
 $REGISTER_LTI2 = array(
-"name" => "Simple Attendance Tool",
+"name" => "Cryptopaze",
 "FontAwesome" => "fa-server",
-"short_name" => "Attendance Tool",
-"description" => "This is a simple attendance tool that allows the instructor to set a code and the students enter the code.",
+"short_name" => "Cryptopaze Tool",
+"description" => __("Interface tool for Topaze Applications."),
     // By default, accept launch messages..
     "messages" => array("launch"),
     "privacy_level" => "name_only",  // anonymous, name_only, public
     "license" => "Apache",
     "languages" => array(
-        "English", "Spanish"
+        "English", "French"
     ),
-    "source_url" => "https://github.com/tsugitools/attend",
+    "source_url" => "https://github.com/eduquenoy/cryptopaze",
     // For now Tsugi tools delegate this to /lti/store
     "placements" => array(
         /*
@@ -23,9 +23,9 @@ $REGISTER_LTI2 = array(
         */
     ),
     "screen_shots" => array(
-        "store/screen-01.png",
-        "store/screen-02.png",
-        "store/screen-03.png"
+    //    "store/screen-01.png",
+    //    "store/screen-02.png",
+    //    "store/screen-03.png"
     )
 
 );

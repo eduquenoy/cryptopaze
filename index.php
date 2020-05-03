@@ -69,8 +69,8 @@ if ( isset($_POST['code']) ) { // Student
     }
 
     // Passed all the tests..
-    $PDOX->queryDie("INSERT INTO {$p}attend
-        (link_id, user_id, ipaddr, attend, updated_at)
+    $PDOX->queryDie("INSERT INTO {$p}cryptopaze
+        (link_id, user_id, ipaddr, cryptopaze, updated_at)
         VALUES ( :LI, :UI, :IP, NOW(), NOW() )
         ON DUPLICATE KEY UPDATE updated_at = NOW()",
         array(
@@ -128,10 +128,11 @@ if ( $USER->instructor ) {
     SettingsForm::start();
     //echo("__('Configure the LTI Tool')\n");
     //SettingsForm::text('title',__('Configure the LTI Tool'));
-    SettingsForm::text('code',__('Code'));
-    SettingsForm::checkbox('grade',__('Send a grade'));
-    SettingsForm::text('match',__('This can be a prefix of an IP address like "142.16.41" or if it starts with a "/" it can be a regular expression (PHP syntax)'));
-    echo("<p>Your current IP address is ".htmlentities(Net::getIP())."</p>\n");
+    SettingsForm::text('code',__('Topaze Application Code'));
+    SettingsForm::text('url',__('Topaze Application URL'));
+//    SettingsForm::checkbox('grade',__('Send a grade'));
+ //   SettingsForm::text('match',__('This can be a prefix of an IP address like "142.16.41" or if it starts with a "/" it can be a regular expression (PHP syntax)'));
+  //  echo("<p>Your current IP address is ".htmlentities(Net::getIP())."</p>\n");
     SettingsForm::done();
     SettingsForm::end();
 }
@@ -140,17 +141,16 @@ if ( $USER->instructor ) {
 
 $OUTPUT->flashMessages();
 
-echo("HELLO<!-- Classic single-file version of the tool -->\n");
+echo("Hello !!!\n");
 
 
 // Ask the user for the code
 if ( $USER->instructor ) {
     echo("<p>");
     if ( strlen($old_code) < 1 ) {
-        echo(_("Use the settings link to configure the attendance code."));
-        echo(gettext("Use the settings link to configure the attendance code."));
+        echo(__("Use the settings link to configure the attendance code."));
     } else {
-        echo(_("You can use the settings link to change the attendance code."));
+        echo(__("You can use the settings link to change the attendance code."));
     }
     echo("</p>\n");
 } else { //Student
