@@ -21,13 +21,16 @@ if ( SettingsForm::handleSettingsPost() ) {
 // Handle Post Data
 $p = $CFG->dbprefix;
 $old_code = $LAUNCH->link->getJsonKey('code', '');
-$old_code = $LAUNCH->link->settingsGet('code', $old_code);
+//$codeTAC = $LAUNCH->link->settingsGet('code', $old_code);//codeTAC = Code Topaze Application Code
+$codeTAC = $LAUNCH->link->settingsGet('code');//codeTAC = Code Topaze Application Code
 $send_grade = $LAUNCH->link->settingsGet('grade');//Retrouve le réglage du panneau de config
+$urlTAU =  $LAUNCH->link->settingsGet('url');//Retrouve le réglage du panneau de config = url Topaze Application Url
+
 $match = $LAUNCH->link->settingsGet('match');
 $ip = Net::getIP();
 
 if ( isset($_POST['clear']) && $USER->instructor ) {
-    $PDOX->queryDie("DELETE FROM {$p}attend WHERE link_id = :LI",
+    $PDOX->queryDie("DELETE FROM {$p}cryptopaze WHERE link_id = :LI",
             array(':LI' => $LINK->id)
     );
     $_SESSION['success'] = 'Data cleared';
@@ -38,10 +41,10 @@ if(isset($_POST['grade'])){ //Le 'grade' est doit être compris entre 0.0 et 1.0
     $toto=$_POST['grade'];
 //    $grade = ($_POST['grade']);//Transformation en valeur numérique 
         $grade = gradeDecode($_POST['grade']);//Transformation en valeur numérique et décryptage 
-        $_SESSION['success'] = __('Grade found '.$toto." et ".$grade);
+        $_SESSION['success'] = __('Grade found = '.$toto." and ".$grade." URL = ".$codeTAC);
 
 //$grade = 0.23;
-    $RESULT->gradeSend($grade, false);//Ecriture de la note 
+    $RESULT->gradeSend($grade, false);//Ecriture de la note dans le bulletin de note du LMS
     header( 'Location: '.addSession('index.php') ) ;
     return;
 }
@@ -67,7 +70,6 @@ if ( isset($_POST['code']) ) { // Student
             return;
         }
     }
-
     // Passed all the tests..
     $PDOX->queryDie("INSERT INTO {$p}cryptopaze
         (link_id, user_id, ipaddr, cryptopaze, updated_at)
@@ -93,10 +95,10 @@ if ( isset($_POST['code']) ) { // Student
 
 // Prepare for view
 if ( $USER->instructor ) {
-    $rows = $PDOX->allRowsDie("SELECT A.user_id,attend,A.ipaddr, displayname, email
-            FROM {$p}attend AS A
+    $rows = $PDOX->allRowsDie("SELECT A.user_id,cryptopaze,A.ipaddr, displayname, email
+            FROM {$p}cryptopaze AS A
             JOIN {$p}lti_user AS U ON U.user_id = A.user_id
-            WHERE link_id = :LI ORDER BY attend DESC, user_id",
+            WHERE link_id = :LI ORDER BY cryptopaze DESC, user_id",
             array(':LI' => $LINK->id)
     );
 } else {
@@ -109,12 +111,24 @@ if ( $USER->instructor ) {
     $menu->addRight(__('Settings'), '#', /* push */ false, SettingsForm::attr());
 }
 
-// Render view
+//****************** Préparer la structure .json ***********
+//On a besoin de l'ID du l'usage, du nom/prénom et du code de l'application Topaze
+/*$USER->displayname
+$USER->email
+$codeTAC
+*/
+$arr=array('displayname' => $USER->displayname, 'email' => $USER->email,'codeTAC' => $codeTAC);
+$codeJSON = json_encode($arr);
+//$codeJSON_CRYP = cryto($codeJSON);
+$codeJSON_CRYP = base64_encode($codeJSON);
+
+// ******************** Render view **************************
 $OUTPUT->header();
 $OUTPUT->bodyStart();
 $OUTPUT->topNav($menu);
 
-
+echo "Le code JSON est : ".$codeJSON."<br>";
+echo "encrytage du JSON  : ".$codeJSON_CRYP."<br>";
 //**************Instructor **************/
 if ( $USER->instructor ) {
     echo('<div style="float:right;">');
@@ -141,10 +155,10 @@ if ( $USER->instructor ) {
 
 $OUTPUT->flashMessages();
 
-echo("Hello !!!\n");
 
 
 // Ask the user for the code
+
 if ( $USER->instructor ) {
     echo("<p>");
     if ( strlen($old_code) < 1 ) {
@@ -153,8 +167,12 @@ if ( $USER->instructor ) {
         echo(__("You can use the settings link to change the attendance code."));
     }
     echo("</p>\n");
-} else { //Student
-    echo("Votre note actuelle est : ".$RESULT->grade."\n");//AJOUT ED 2020
+} else { 
+    //*************** Student *******************************
+    //print_r($RESULT);
+    echo(__("Hello ").$USER->displayname."<br>");
+    echo(__("Your grade is : ").$RESULT->grade."<br>");//AJOUT ED 2020
+    echo(__("Topaze Application URL : ")."<a href='".$urlTAU."'>".__("click to access your application")."<br>" );
     echo('<form method="post">');
   //  echo(_("Enter code:")."\n");
   //  echo('<input type="text" name="code" value=""> ');
@@ -191,7 +209,7 @@ if ( $rows ) {
         echo(' &nbsp;*******&nbsp; ');
         echo('</a>');
         echo("</td><td>");
-        echo($row['attend']);
+        echo($row['cryptopaze']);
         echo("</td><td>");
         echo(htmlent_utf8($row['ipaddr']));
         echo("</td></tr>\n");
@@ -206,3 +224,23 @@ function gradeDecode($gradeCoded){
     $result=($gradeCoded & 255)/100.0;
     return($result);    
 }
+
+function cryto($texte){
+    $toto = strlen($texte);
+    echo "Taille : ".$toto."<br>";
+    /*for($i=0 ; $i < $toto ; $i++){
+        
+        $tmp = charCodeAt($texte, $i) ;
+
+        $textecryte=$textecrypte + base_convert($tmp,10,16) ;
+     
+    }*/
+    
+return(0);
+
+}
+function charCodeAt($texte, $offset) {
+    $texte = substr($texte, $offset, 1);
+    list(, $ret) = unpack('S', mb_convert_encoding($character, 'UTF-16LE'));
+    return($ret);
+    }
