@@ -38,13 +38,21 @@ if ( isset($_POST['clear']) && $USER->instructor ) {
     return;
 } 
 if(isset($_POST['grade'])){ //Le 'grade' est doit être compris entre 0.0 et 1.0
-    $toto=$_POST['grade'];
+    $toto64=$_POST['grade'];
+    $toto = base64_decode($toto64);
+    $toto_JSON = json_decode($toto,TRUE);
+    $toto = intval($toto_JSON["note"])/100;
+    //Décodage
+ //Fonctions de décodage json et base64 : https://www.php.net/manual/fr/function.json-decode.php et https://www.php.net/manual/fr/function.base64-decode.php
+
 //    $grade = ($_POST['grade']);//Transformation en valeur numérique 
         $grade = gradeDecode($_POST['grade']);//Transformation en valeur numérique et décryptage 
-        $_SESSION['success'] = __('Grade found = '.$toto." and ".$grade." URL = ".$codeTAC);
+        $_SESSION['success'] = __('Grade found = '.$toto." and ".$grade." Code TAC = ".$codeTAC);
 
 //$grade = 0.23;
-    $RESULT->gradeSend($grade, false);//Ecriture de la note dans le bulletin de note du LMS
+    //$RESULT->gradeSend($grade, false);//Ecriture de la note dans le bulletin de note du LMS
+    $RESULT->gradeSend($toto, false);//Ecriture de la note dans le bulletin de note du LMS
+    
     header( 'Location: '.addSession('index.php') ) ;
     return;
 }
@@ -122,6 +130,8 @@ $codeJSON = json_encode($arr);
 //$codeJSON_CRYP = cryto($codeJSON);
 $codeJSON_CRYP = base64_encode($codeJSON);
 
+//Fonctions de décodage json et base64 : https://www.php.net/manual/fr/function.json-decode.php et https://www.php.net/manual/fr/function.base64-decode.php
+
 // ******************** Render view **************************
 $OUTPUT->header();
 $OUTPUT->bodyStart();
@@ -172,7 +182,7 @@ if ( $USER->instructor ) {
     //print_r($RESULT);
     echo(__("Hello ").$USER->displayname."<br>");
     echo(__("Your grade is : ").$RESULT->grade."<br>");//AJOUT ED 2020
-    echo(__("Topaze Application URL : ")."<a href='".$urlTAU."'>".__("click to access your application")."<br>" );
+    echo(__("Topaze Application URL : ")."<a href='".$urlTAU."'>".__("click to access your application")."</a>"."<br>" );
     echo('<form method="post">');
   //  echo(_("Enter code:")."\n");
   //  echo('<input type="text" name="code" value=""> ');
