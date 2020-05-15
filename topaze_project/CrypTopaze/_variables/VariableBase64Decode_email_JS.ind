@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:autoVar xmlns:opa="kelis.fr:opa" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:autoVarM>
+			<sp:title>Décodage Base64 de l'email</sp:title>
+		</opa:autoVarM>
+		<sp:js>
+			<opa:autoVarJs>
+				<sc:para xml:space="preserve">//VariableBase64Decode_email_JS</sc:para>
+				<sc:para xml:space="preserve">var code64 = <sc:objectLeaf role="inputVar" sc:refUri="/CrypTopaze/_variables/VariableAccessCode.ind"/>;//Réception de la chaine JSON codée</sc:para>
+				<sc:para xml:space="preserve">if(code64 == &quot;&quot; || IsBase64String(code64) == 0){</sc:para>
+				<sc:para xml:space="preserve"> console.log(&quot;Erreur chaîne vide ! ! ! - from email&quot;) ;</sc:para>
+				<sc:para xml:space="preserve"> //alert('Chaine vide ! ! !') ;</sc:para>
+				<sc:para xml:space="preserve"> return 'Erreur ! ! !' ;</sc:para>
+				<sc:para xml:space="preserve">}</sc:para>
+				<sc:para xml:space="preserve">else {</sc:para>
+				<sc:para xml:space="preserve"> var decode64 = atob(code64);//Décodage de la chaine JSON</sc:para>
+				<sc:para xml:space="preserve"> var myJson = JSON.parse(decode64) ;</sc:para>
+				<sc:para xml:space="preserve"> console.log(myJson.email) ;</sc:para>
+				<sc:para xml:space="preserve"> return myJson.email;</sc:para>
+				<sc:para xml:space="preserve">}</sc:para>
+				<sc:para xml:space="preserve">function IsBase64String(text){</sc:para>
+				<sc:para xml:space="preserve"> var result = text.match(/^[a-zA-Z0-9\/\r\n+]*={0,2}$/) ;</sc:para>
+				<sc:para xml:space="preserve"> if(result === null){</sc:para>
+				<sc:para xml:space="preserve">  console.log(&quot;Pas base64&quot;) ;</sc:para>
+				<sc:para xml:space="preserve">  return 0 ;</sc:para>
+				<sc:para xml:space="preserve"> }</sc:para>
+				<sc:para xml:space="preserve"> else{</sc:para>
+				<sc:para xml:space="preserve">  console.log(&quot;Base64&quot;) ;</sc:para>
+				<sc:para xml:space="preserve">  return 1 ;</sc:para>
+				<sc:para xml:space="preserve"> }</sc:para>
+				<sc:para xml:space="preserve">}</sc:para>
+			</opa:autoVarJs>
+		</sp:js>
+	</opa:autoVar>
+</sc:item>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:autoVar xmlns:opa="kelis.fr:opa" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:autoVarM>
+			<sp:title>Décodage de la chaîne codée en base64</sp:title>
+		</opa:autoVarM>
+		<sp:js>
+			<opa:autoVarJs>
+				<sc:para xml:space="preserve">//VariableBase64Decode</sc:para>
+				<sc:para xml:space="preserve">var myJson ="" ;</sc:para>
+				<sc:para xml:space="preserve">var code64 = <sc:objectLeaf role="inputVar" sc:refUri="/CrypTopaze/_variables/VariableAccessCode.ind"/>;//Réception de la chaine JSON codée</sc:para>
+				<sc:para xml:space="preserve">if(code64 == "" || IsBase64String(code64) === 0){</sc:para>
+				<sc:para xml:space="preserve"> console.log("Erreur chaîne vide ! ! ! - from Base64_Decode ") ;</sc:para>
+				<sc:para xml:space="preserve"> return 'error' ;</sc:para>
+				<sc:para xml:space="preserve">}</sc:para>
+				<sc:para xml:space="preserve">else {</sc:para>
+				<sc:para xml:space="preserve"> var decode64 = atob(code64);//Décodage de la chaine JSON</sc:para>
+				<sc:para xml:space="preserve"> try {</sc:para>
+				<sc:para xml:space="preserve">  myJson = JSON.parse(decode64) ;//Transformation en objet JSON</sc:para>
+				<sc:para xml:space="preserve"> }</sc:para>
+				<sc:para xml:space="preserve"> catch (e) {</sc:para>
+				<sc:para xml:space="preserve">  console.error("Parsing error:", e);</sc:para>
+				<sc:para xml:space="preserve">  myJson = "Error sur myJson ! ! !" ;</sc:para>
+				<sc:para xml:space="preserve"> }</sc:para>
+				<sc:para xml:space="preserve"> return myJson; //Renvoi de l'objet JSON</sc:para>
+				<sc:para xml:space="preserve">}</sc:para>
+				<sc:para xml:space="preserve">function IsBase64String(text){</sc:para>
+				<sc:para xml:space="preserve"> var result = text.match(/^[a-zA-Z0-9\/\r\n+]*={0,2}$/) ;</sc:para>
+				<sc:para xml:space="preserve"> if(result === null){</sc:para>
+				<sc:para xml:space="preserve">  console.log("Pas base64") ;</sc:para>
+				<sc:para xml:space="preserve">  return 0 ;</sc:para>
+				<sc:para xml:space="preserve"> }</sc:para>
+				<sc:para xml:space="preserve"> else{</sc:para>
+				<sc:para xml:space="preserve">  console.log("Base64") ;</sc:para>
+				<sc:para xml:space="preserve">  return 1 ;</sc:para>
+				<sc:para xml:space="preserve"> }</sc:para>
+				<sc:para xml:space="preserve">}</sc:para>
+			</opa:autoVarJs>
+		</sp:js>
+	</opa:autoVar>
+</sc:item>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:autoIndex xmlns:opa="kelis.fr:opa" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:autoIndexM>
+			<sp:title>Décodage du code</sp:title>
+		</opa:autoIndexM>
+		<sp:js>
+			<opa:autoIndexJs>
+				<sc:para xml:space="preserve">//Fonction de cryptage du texte (simple transformation en ASCII)</sc:para>
+				<sc:para xml:space="preserve">function crypto(texte) {</sc:para>
+				<sc:para xml:space="preserve">var textecryte=&quot;&quot; ;</sc:para>
+				<sc:para xml:space="preserve">var tmp ;</sc:para>
+				<sc:para xml:space="preserve">for(var i=0 ; i&lt;texte.length ;i++){</sc:para>
+				<sc:para xml:space="preserve">tmp = texte.charCodeAt(i) ;</sc:para>
+				<sc:para xml:space="preserve">textecryte=textecryte + tmp.toString(16) ;</sc:para>
+				<sc:para xml:space="preserve">}</sc:para>
+				<sc:para xml:space="preserve">return textecryte;</sc:para>
+				<sc:para xml:space="preserve">}</sc:para>
+				<sc:para xml:space="preserve">function decrypto(texte){</sc:para>
+				<sc:para xml:space="preserve">var textecrypte=&quot;&quot; ;</sc:para>
+				<sc:para xml:space="preserve">var result=&quot;&quot; ;</sc:para>
+				<sc:para xml:space="preserve">for(var i=0 ; i&lt;texte.length ;i=i+2){</sc:para>
+				<sc:para xml:space="preserve">textecrypte = texte.substring(i,i+2) ;//On récupère un code hexa 16 bits</sc:para>
+				<sc:para xml:space="preserve">//console.log(i,&quot; &quot;,textecrypte) ;</sc:para>
+				<sc:para xml:space="preserve">textecrypte = parseInt(textecrypte,16);</sc:para>
+				<sc:para xml:space="preserve">result=result+String.fromCharCode(textecrypte) ;</sc:para>
+				<sc:para xml:space="preserve">}</sc:para>
+				<sc:para xml:space="preserve">return result;</sc:para>
+				<sc:para xml:space="preserve">}</sc:para>
+				<sc:para xml:space="preserve">const json = '{&quot;displayname&quot;:&quot;xEmmett xBrown&quot;,&quot;email&quot;:&quot;eric.duquenoy@gmail.com&quot;,&quot;codeTAC&quot;:&quot;123&quot;}';</sc:para>
+				<sc:para xml:space="preserve">var toto = crypto(json) ;</sc:para>
+				<sc:para xml:space="preserve">console.log(toto) ;</sc:para>
+				<sc:para xml:space="preserve">console.log(decrypto(toto)) ;</sc:para>
+				<sc:para xml:space="preserve">code = <sc:objectLeaf role="inputVar" sc:refUri="/CrypTopaze/_variables/VariableAccessCode.ind"/>;</sc:para>
+				<sc:para xml:space="preserve">if($code.includes(&quot;12345&quot;)){return 1 ;}</sc:para>
+				<sc:para xml:space="preserve">else {return 0 ;}</sc:para>
+			</opa:autoIndexJs>
+		</sp:js>
+	</opa:autoIndex>
+</sc:item>

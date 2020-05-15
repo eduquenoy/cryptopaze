@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:autoIndex xmlns:opa="kelis.fr:opa" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:autoIndexM>
+			<sp:title>Décodage Base64 du DisplayName</sp:title>
+		</opa:autoIndexM>
+		<sp:js>
+			<opa:autoIndexJs>
+				<sc:para xml:space="preserve">var code64 = <sc:objectLeaf role="inputVar" sc:refUri="/CrypTopaze/_variables/VariableAccessCode.ind"/>;//Réception de la chaine JSON codée</sc:para>
+				<sc:para xml:space="preserve">var decode64 = atob(code64);//Décodage de la chaine JSON</sc:para>
+				<sc:para xml:space="preserve">var myJson = JSON.parse(decode64) ;</sc:para>
+				<sc:para xml:space="preserve">console.log(myJson.displayname) ;</sc:para>
+				<sc:para xml:space="preserve">return myJson.displayname ;</sc:para>
+			</opa:autoIndexJs>
+		</sp:js>
+	</opa:autoIndex>
+</sc:item>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:expNode xmlns:opa="kelis.fr:opa" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:nodeM>
+			<sp:title>Affichage de la note</sp:title>
+		</opa:nodeM>
+		<sp:co>
+			<op:expUc>
+				<op:uM/>
+				<sp:pb>
+					<op:pb>
+						<sp:info>
+							<op:pbTi/>
+							<op:res>
+								<sp:txt>
+									<op:txt>
+										<sc:para xml:space="preserve">Votre note est : <sc:objectLeaf role="indDisplay" sc:refUri="/CrypTopaze/_indicateurs/Indicateur_Score.ind"/></sc:para>
+										<sc:para xml:space="preserve">Votre code est : <sc:objectLeaf role="indDisplay" sc:refUri="/CrypTopaze/_indicateurs/IndicateurJS.ind"/></sc:para>
+										<sc:para xml:space="preserve">La note codée : <sc:objectLeaf role="varDisplay" sc:refUri="/CrypTopaze/_variables/VariableCreateNoteBase64Coded.ind"/></sc:para>
+									</op:txt>
+								</sp:txt>
+							</op:res>
+						</sp:info>
+					</op:pb>
+				</sp:pb>
+			</op:expUc>
+		</sp:co>
+		<sp:arc>
+			<opa:endArc/>
+		</sp:arc>
+	</opa:expNode>
+</sc:item>

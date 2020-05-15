@@ -7,83 +7,88 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 20:24+0200\n"
-"PO-Revision-Date: 2020-05-03 11:13+0200\n"
+"POT-Creation-Date: 2020-05-15 15:22+0200\n"
+"PO-Revision-Date: 2020-05-15 15:28+0200\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: \n"
+"Last-Translator: Eric DUQUENOY <eric.duquenoy@univ-littoral.fr>\n"
 "Language-Team: \n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.3.1\n"
 
-#: index.php:38
-msgid "Grade found"
-msgstr "Note trouvée"
+#: index.php:82
+msgid "Grade found = "
+msgstr "Note trouvée ="
 
-#: index.php:47
+#: index.php:93
 msgid "Code incorrect"
 msgstr "Code incorrect"
 
-#: index.php:54 index.php:62
+#: index.php:100 index.php:108
 msgid "IP Address "
 msgstr "Adresse IP "
 
-#: index.php:86
+#: index.php:131
 msgid "Attendance Recorded..."
 msgstr "Participation enregistrée..."
 
-#: index.php:106
+#: index.php:151
 msgid "Settings"
 msgstr "Réglages"
 
-#: index.php:117
+#: index.php:182
 msgid "Clear data"
 msgstr "Effacer les données"
 
-#: index.php:125
-msgid "Code"
-msgstr "Code"
+#: index.php:191
+msgid "Topaze Application Code"
+msgstr "Code de l'application Topaze"
 
-#: index.php:126
-msgid "Send a grade"
-msgstr "Envoyer une note"
+#: index.php:192
+msgid "Topaze Application URL"
+msgstr "Adresse de l'application Topaze"
 
-#: index.php:127
-msgid ""
-"This can be a prefix of an IP address like \"142.16.41\" or if it starts "
-"with a \"/\" it can be a regular expression (PHP syntax)"
-msgstr ""
-"Il peut s'agir d'un préfixe d'adresse IP comme \"142.16.41\" ou, s'il "
-"commence par un \"/\", il peut s'agir d'une expression régulière "
-"(syntaxe PHP)"
-
-#: index.php:142 index.php:143
+#: index.php:211
 msgid "Use the settings link to configure the attendance code."
 msgstr "Utilisez le lien \"Réglages\" pour configurer le code de présence."
 
-#: index.php:145
+#: index.php:213
 msgid "You can use the settings link to change the attendance code."
-msgstr ""
-"Vous pouvez utiliser le lien des réglages pour modifier le code de "
-"présence."
+msgstr "Vous pouvez utiliser le lien des réglages pour modifier le code de présence."
 
-#: index.php:153
-msgid "Enter grade:"
-msgstr "Saisir la note :"
+#: index.php:219
+msgid "Hello "
+msgstr "Bonjour "
 
-#: index.php:155
-msgid "Record attendance"
-msgstr "Enregistrer la présence"
+#: index.php:220
+msgid "Your grade is : "
+msgstr "Votre note est : "
 
-#: index.php:169
+#: index.php:221
+msgid "Topaze Application URL : "
+msgstr "Adresse de l'application Topaze : "
+
+#: index.php:221
+msgid "click to access your application"
+msgstr "cliquez pour accéder à votre application"
+
+#: index.php:225
+msgid "Enter coded grade :"
+msgstr "Entrez la note codée :"
+
+#: index.php:227
+msgid "Record your code"
+msgstr "Enregistrez votre code"
+
+#: index.php:241
 msgid "User"
 msgstr "Usager"
 
-#: index.php:169
+#: index.php:241
 msgid "Attendance"
 msgstr "Présence"
 
-#: index.php:169
+#: index.php:241
 msgid "IP Address"
 msgstr "Adresse IP"

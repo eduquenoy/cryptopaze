@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:autoIndex xmlns:opa="kelis.fr:opa" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:autoIndexM>
+			<sp:title>Test</sp:title>
+		</opa:autoIndexM>
+		<sp:js>
+			<opa:autoIndexJs>
+				<sc:para xml:space="preserve">var decimal = <sc:objectLeaf role="input" sc:refUri="/CrypTopaze/_indicateurs/Indicateur_Score.ind"/> ;</sc:para>
+				<sc:para xml:space="preserve">var alea = <sc:objectLeaf role="input" sc:refUri="/CrypTopaze/_indicateurs/IndicateurRandom.ind"/>;</sc:para>
+				<sc:para xml:space="preserve">alea = alea &amp; 65280 ;</sc:para>
+				<sc:para xml:space="preserve">var binaire = (decimal | alea).toString(4);</sc:para>
+				<sc:para xml:space="preserve">return parseInt(binaire,4);</sc:para>
+			</opa:autoIndexJs>
+		</sp:js>
+	</opa:autoIndex>
+</sc:item>

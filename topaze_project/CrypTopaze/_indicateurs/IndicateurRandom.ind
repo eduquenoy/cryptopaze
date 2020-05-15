@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:autoIndex xmlns:opa="kelis.fr:opa" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:autoIndexM>
+			<sp:title>Nombre aléatoire</sp:title>
+		</opa:autoIndexM>
+		<sp:random>
+			<opa:auroIndexRandom>
+				<sp:min>100</sp:min>
+				<sp:max>4294967295</sp:max>
+				<sp:persistance>none</sp:persistance>
+			</opa:auroIndexRandom>
+		</sp:random>
+	</opa:autoIndex>
+</sc:item>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:case xmlns:opa="kelis.fr:opa" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:caseM>
+			<sp:title>Démonstrateur Cryptopaze</sp:title>
+			<sp:intro>
+				<op:res>
+					<sp:txt>
+						<op:txt>
+							<sc:para xml:space="preserve">Cryptopaze v1 est un projet visant à permettre d'utiliser Topaze pour réaliser des évaluations normatives comme des tests de positionnements ou des examens en ligne. L'idée est de sécuriser l'identification de l'étudiant et de sa note. Un outil compatible avec le protocole LTI est en développement qui permettra :</sc:para>
+							<sc:itemizedList>
+								<sc:listItem>
+									<sc:para xml:space="preserve">de fournir à l'étudiant un code lui permettant d'accéder au test Topaze,</sc:para>
+								</sc:listItem>
+								<sc:listItem>
+									<sc:para xml:space="preserve">de permettre à l'étudiant de déposer sur la plate-forme pédagogique, via l'outil LTI, la note obtenue au test Topaze. Cette note sera fournie par le quiz Topaze sous une forme cryptée qui inclura un mécanisme de validation. Ainsi, deux étudiants ayant obtenu la même note n'auront pas le même code, de même, le même étudiant ayant passé le test plusieurs fois et ayant obtenu la même note n'aura pas le même code,</sc:para>
+								</sc:listItem>
+							</sc:itemizedList>
+							<sc:para xml:space="preserve">Quelles sont les informations à transmettre à Topaze :</sc:para>
+							<sc:itemizedList>
+								<sc:listItem>
+									<sc:para xml:space="preserve">identifiant de l'étudiant (qui sera renvoyé par Topaze pour vérification par l'outil LTI),</sc:para>
+								</sc:listItem>
+								<sc:listItem>
+									<sc:para xml:space="preserve">nom et prénom (pour affichage et vérification visuelle),</sc:para>
+								</sc:listItem>
+								<sc:listItem>
+									<sc:para xml:space="preserve">un éventuel code (pour être sûr qu'il s'agit du bon quiz que l'étudiant passe) ?</sc:para>
+								</sc:listItem>
+							</sc:itemizedList>
+							<sc:para xml:space="preserve">Coté Topaze, il faut fixer le code quelque part. il peut être apparent dans l'application Topaze puisqu'il sera transmis crypter par l'étudiant à l'application</sc:para>
+							<sc:para xml:space="preserve">Comme crypter ? Les informations sont en texte, il faudrait une structure de données (qui permettrait de faire évoluer plus facilement par la suite). C'est le JSON qui a été choisi (plus facile à manipuler) associé à un codage 64 bits. Il reste à envisager une solution de cryptage.</sc:para>
+						</op:txt>
+					</sp:txt>
+					<sp:txt>
+						<op:txt>
+							<sc:para xml:space="preserve">Veuillez saisir votre code :</sc:para>
+						</op:txt>
+					</sp:txt>
+					<sp:txt>
+						<op:txt>
+							<sc:para xml:space="preserve">Veuillez saisir votre code d'accès : <sc:objectLeaf role="varField" sc:refUri="/CrypTopaze/_variables/VariableAccessCode.ind"/></sc:para>
+						</op:txt>
+					</sp:txt>
+				</op:res>
+			</sp:intro>
+		</opa:caseM>
+		<sp:start sc:refUri="/CrypTopaze/_etapes/EtapeChoix3.node"/>
+	</opa:case>
+</sc:item>

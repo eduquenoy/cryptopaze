@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:expNode xmlns:opa="kelis.fr:opa" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:nodeM>
+			<sp:title>Code ok ?</sp:title>
+		</opa:nodeM>
+		<sp:co>
+			<op:expUc>
+				<op:uM/>
+				<sp:pb>
+					<op:pb>
+						<sp:info>
+							<op:pbTi>
+								<sp:title>Votre nom</sp:title>
+							</op:pbTi>
+							<op:res>
+								<sp:txt>
+									<op:txt>
+										<sc:para xml:space="preserve"><sc:objectLeaf role="varDisplay" sc:refUri="/CrypTopaze/_variables/VariableBase64Decode_DisplayName_JS.ind"/></sc:para>
+									</op:txt>
+								</sp:txt>
+							</op:res>
+						</sp:info>
+						<sp:info>
+							<op:pbTi>
+								<sp:title>Votre email</sp:title>
+							</op:pbTi>
+							<op:res>
+								<sp:txt>
+									<op:txt>
+										<sc:para xml:space="preserve"><sc:objectLeaf role="varDisplay" sc:refUri="/CrypTopaze/_variables/VariableBase64Decode_email_JS.ind"/></sc:para>
+									</op:txt>
+								</sp:txt>
+							</op:res>
+						</sp:info>
+						<sp:info>
+							<op:pbTi>
+								<sp:title>Analyse du code</sp:title>
+								<sp:cond>
+									<opa:condBlock>
+										<sp:cond sc:refUri="/CrypTopaze/_conditions/cond_AccesCodeTAC_Ok.cnd"/>
+									</opa:condBlock>
+								</sp:cond>
+							</op:pbTi>
+							<op:res>
+								<sp:txt>
+									<op:txt>
+										<sc:para xml:space="preserve">Ok, c'est bon</sc:para>
+									</op:txt>
+								</sp:txt>
+							</op:res>
+						</sp:info>
+						<sp:info>
+							<op:pbTi>
+								<sp:title>Analyse du code</sp:title>
+								<sp:cond>
+									<opa:condBlock>
+										<sp:cond sc:refUri="/CrypTopaze/_conditions/cond_AccesCodeTAC_PasOk.cnd"/>
+									</opa:condBlock>
+								</sp:cond>
+							</op:pbTi>
+							<op:res>
+								<sp:txt>
+									<op:txt>
+										<sc:para xml:space="preserve">Le code n'est pas bon</sc:para>
+									</op:txt>
+								</sp:txt>
+							</op:res>
+						</sp:info>
+					</op:pb>
+				</sp:pb>
+			</op:expUc>
+		</sp:co>
+		<sp:arc>
+			<opa:chooseArc>
+				<sp:next sc:refUri="/CrypTopaze/_etapes/Etape_DemoQuiz.node">
+					<opa:arcLnkCondM>
+						<sp:cond>
+							<opa:condCalc>
+								<sp:left sc:refUri="/CrypTopaze/_indicateurs/IndicateurBase64Decode_AccessCode_JS.ind"/>
+								<sp:op>=</sp:op>
+								<sp:right>1</sp:right>
+							</opa:condCalc>
+						</sp:cond>
+					</opa:arcLnkCondM>
+				</sp:next>
+				<sp:otherwise sc:refUri="/CrypTopaze/_etapes/Etape_Erreur.node">
+					<opa:arcLnkM/>
+				</sp:otherwise>
+			</opa:chooseArc>
+		</sp:arc>
+	</opa:expNode>
+</sc:item>

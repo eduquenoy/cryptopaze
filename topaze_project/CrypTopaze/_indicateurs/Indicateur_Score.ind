@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:autoIndex xmlns:opa="kelis.fr:opa" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:autoIndexM>
+			<sp:title>Calcul du score</sp:title>
+		</opa:autoIndexM>
+		<sp:sum>
+			<opa:autoIndexInput>
+				<sp:input sc:refUri="/CrypTopaze/_quiz/QCU.quiz">
+					<opa:inputM/>
+				</sp:input>
+			</opa:autoIndexInput>
+		</sp:sum>
+	</opa:autoIndex>
+</sc:item>

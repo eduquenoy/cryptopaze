@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:userVar xmlns:opa="kelis.fr:opa" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:userVarM>
+			<sp:title>Chaîne contenant les informations d'accès</sp:title>
+			<sp:requiredInput>yes</sp:requiredInput>
+		</opa:userVarM>
+	</opa:userVar>
+</sc:item>

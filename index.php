@@ -1,6 +1,38 @@
 <?php
 require_once "../config.php";
+?>
+<script type="text/javascript">
+function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput");
 
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  //document.execCommand("copy");
+  textToClipboard(copyText.value);
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+} 
+function textToClipboard (text) {
+var dummy = document.createElement("textarea");
+document.body.appendChild(dummy);
+dummy.value = text;
+dummy.select();
+document.execCommand("copy");
+document.body.removeChild(dummy);
+}
+
+</script>
+<style type="text/css">
+#myButton{
+    color:blue;
+}
+</style>
+
+<?php
 // The Tsugi PHP API Documentation is available at:
 // http://do1.dr-chuck.com/tsugi/phpdoc/
 
@@ -41,7 +73,7 @@ if(isset($_POST['grade'])){ //Le 'grade' est doit être compris entre 0.0 et 1.0
     $toto64=$_POST['grade'];
     $toto = base64_decode($toto64);
     $toto_JSON = json_decode($toto,TRUE);
-    $toto = intval($toto_JSON["note"])/100;
+    $toto = intval($toto_JSON["note"])/100; //Mise à l'échelle de la note
     //Décodage
  //Fonctions de décodage json et base64 : https://www.php.net/manual/fr/function.json-decode.php et https://www.php.net/manual/fr/function.base64-decode.php
 
@@ -127,6 +159,7 @@ $codeTAC
 */
 $arr=array('displayname' => $USER->displayname, 'email' => $USER->email,'codeTAC' => $codeTAC);
 $codeJSON = json_encode($arr);
+
 //$codeJSON_CRYP = cryto($codeJSON);
 $codeJSON_CRYP = base64_encode($codeJSON);
 
@@ -139,7 +172,10 @@ $OUTPUT->topNav($menu);
 
 echo "Le code JSON est : ".$codeJSON."<br>";
 echo "encrytage du JSON  : ".$codeJSON_CRYP."<br>";
-//**************Instructor **************/
+echo "<input type='text' value='".$codeJSON_CRYP."' id='myInput'  disabled='disabled'>"; //Le champ texte à afficher
+echo "<button onclick='myFunction()' id='myButton'>Copy text</button>";//Le bouton pour copier le texte
+
+//**************Instructor Affichage du formulaire de réglages **************/
 if ( $USER->instructor ) {
     echo('<div style="float:right;">');
     echo('<form method="post" style="display: inline">');
@@ -188,7 +224,7 @@ if ( $USER->instructor ) {
   //  echo('<input type="text" name="code" value=""> ');
     echo(_("Enter coded grade :")."\n");
    echo('<input type="text" name="grade" value=""> '); //AJOUT ED 2020
-    echo('<input type="submit" class="btn btn-normal" name="set" value="'.__('Record attendance').'"><br/>');
+    echo('<input type="submit" class="btn btn-normal" name="set" value="'.__('Record your code').'"><br/>');
     echo("\n</form>\n");
 }
 
@@ -228,6 +264,9 @@ if ( $rows ) {
 }
 
 $OUTPUT->footer();
+
+
+//Fonctions supplémentaires (E.DUQUENOY 2020)
 function gradeDecode($gradeCoded){
     //On suppose la note comprise entre 0 et 255.
     //Cependant, "grade" doit être compris entre 0.0 et 1.0. La fonction va donc ajuster également l'échelle

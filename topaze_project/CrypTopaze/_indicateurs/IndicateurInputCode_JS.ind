@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:autoIndex xmlns:opa="kelis.fr:opa" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:autoIndexM>
+			<sp:title>Décodage du code</sp:title>
+		</opa:autoIndexM>
+		<sp:js>
+			<opa:autoIndexJs>
+				<sc:para xml:space="preserve">$code = <sc:objectLeaf role="input" sc:refUri="/CrypTopaze/_indicateurs/IndicateurInputCode.ind"/>;</sc:para>
+				<sc:para xml:space="preserve">if($code == &quot;12345&quot;){return 1 ;}</sc:para>
+				<sc:para xml:space="preserve">else {return 0 ;}</sc:para>
+			</opa:autoIndexJs>
+		</sp:js>
+	</opa:autoIndex>
+</sc:item>

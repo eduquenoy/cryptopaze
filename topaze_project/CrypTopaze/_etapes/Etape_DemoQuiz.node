@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:assmntNode xmlns:opa="kelis.fr:opa" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:assmntNodeM>
+			<sp:title>Un exemple de quiz</sp:title>
+		</opa:assmntNodeM>
+		<sp:quiz sc:refUri="/CrypTopaze/_quiz/QCU.quiz"/>
+		<sc:feedbacks>
+			<sc:feedback>
+				<opa:fdbkAssmnt>
+					<sp:arc>
+						<opa:unaryArc>
+							<sp:next sc:refUri="/CrypTopaze/_etapes/Etape_AfficherNote.node">
+								<opa:arcLnkM/>
+							</sp:next>
+						</opa:unaryArc>
+					</sp:arc>
+				</opa:fdbkAssmnt>
+			</sc:feedback>
+		</sc:feedbacks>
+	</opa:assmntNode>
+</sc:item>

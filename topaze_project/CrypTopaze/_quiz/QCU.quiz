@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:mcqSurPts xmlns:op="utc.fr:ics/opale3" xmlns:opa="kelis.fr:opa" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Voici une question à points</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice score="1">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Si vous cochez cette réponse, vous obtiendrez 1 point</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice score="2">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Si vous cochez cette réponse, vous obtiendrez 2 points</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice score="0">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Si vous cochez cette réponse, vous obtiendrez 0 point</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice score="10">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Si vous cochez cette réponse, vous obtiendrez 10 points</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+	</opa:mcqSurPts>
+</sc:item>

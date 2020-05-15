@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:autoVar xmlns:opa="kelis.fr:opa" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:autoVarM>
+			<sp:title>Création et codage de la note</sp:title>
+		</opa:autoVarM>
+		<sp:js>
+			<opa:autoVarJs>
+				<sc:para xml:space="preserve">var note = <sc:objectLeaf role="input" sc:refUri="/CrypTopaze/_indicateurs/Indicateur_Score.ind"/>;//On récupère la note obtenue</sc:para>
+				<sc:para xml:space="preserve">var email = <sc:objectLeaf role="inputVar" sc:refUri="/CrypTopaze/_variables/VariableBase64Decode_email_JS.ind"/>; //On récupère l'email (permettra la vérification)</sc:para>
+				<sc:para xml:space="preserve">//Il faut créer la structure JSON</sc:para>
+				<sc:para xml:space="preserve">var result = new Object() ;</sc:para>
+				<sc:para xml:space="preserve">result.note = note ;</sc:para>
+				<sc:para xml:space="preserve">result.email = email ;</sc:para>
+				<sc:para xml:space="preserve">myJson = JSON.stringify(result) ;</sc:para>
+				<sc:para xml:space="preserve">myJson64 = btoa(myJson) ;</sc:para>
+				<sc:para xml:space="preserve">console.log(&quot;Objet contenant la note : &quot;+myJson) ;</sc:para>
+				<sc:para xml:space="preserve">return myJson64;</sc:para>
+			</opa:autoVarJs>
+		</sp:js>
+	</opa:autoVar>
+</sc:item>
