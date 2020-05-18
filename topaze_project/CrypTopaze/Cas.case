@@ -45,6 +45,6 @@
 				</op:res>
 			</sp:intro>
 		</opa:caseM>
-		<sp:start sc:refUri="/CrypTopaze/_etapes/EtapeChoix3.node"/>
+		<sp:start sc:refUri="/CrypTopaze/_etapes/EtapeChoix2.node"/>
 	</opa:case>
 </sc:item>

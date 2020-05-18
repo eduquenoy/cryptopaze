@@ -6,7 +6,7 @@
 		</opa:autoVarM>
 		<sp:js>
 			<opa:autoVarJs>
-				<sc:para xml:space="preserve">//VariableBase64Decode_DisplayName_JS</sc:para>
+				<sc:para xml:space="preserve">//VariableDecode_DisplayName_JS</sc:para>
 				<sc:para xml:space="preserve">var myJson = <sc:objectLeaf role="inputVar" sc:refUri="/CrypTopaze/_variables/VariableBase64_Decode.ind"/>;</sc:para>
 				<sc:para xml:space="preserve">if(myJson == 'error' || myJson == null){</sc:para>
 				<sc:para xml:space="preserve">console.log("error from json decode") ;</sc:para>

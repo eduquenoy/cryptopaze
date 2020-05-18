@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:autoVar xmlns:opa="kelis.fr:opa" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:autoVarM>
+			<sp:title>Lecture d'un fichier (test)</sp:title>
+		</opa:autoVarM>
+		<sp:js>
+			<opa:autoVarJs>
+				<sc:para xml:space="preserve">//Test de lecture d'un fichier</sc:para>
+				<sc:para xml:space="preserve">var reader = new FileReader(); // no arguments</sc:para>
+				<sc:para xml:space="preserve">return "Hello" ;</sc:para>
+			</opa:autoVarJs>
+		</sp:js>
+	</opa:autoVar>
+</sc:item>

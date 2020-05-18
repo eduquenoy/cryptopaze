@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:case xmlns:opa="kelis.fr:opa" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:caseM>
+			<sp:title>Lecture d'un fichier</sp:title>
+		</opa:caseM>
+		<sp:start sc:refUri="/Tests/EtapeContenu.node"/>
+	</opa:case>
+</sc:item>

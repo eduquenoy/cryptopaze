@@ -33,6 +33,7 @@ document.body.removeChild(dummy);
 </style>
 
 <?php
+$debug = FALSE;
 // The Tsugi PHP API Documentation is available at:
 // http://do1.dr-chuck.com/tsugi/phpdoc/
 
@@ -73,13 +74,24 @@ if(isset($_POST['grade'])){ //Le 'grade' est doit être compris entre 0.0 et 1.0
     $toto64=$_POST['grade'];
     $toto = base64_decode($toto64);
     $toto_JSON = json_decode($toto,TRUE);
-    $toto = intval($toto_JSON["note"])/100; //Mise à l'échelle de la note
+    $flag_error_email=FALSE;
+    if(strcmp($USER->email,$toto_JSON["email"])==0){
+            $toto = intval($toto_JSON["note"])/100; //Mise à l'échelle de la note
+    }
+    else{
+        $toto = 0;
+        $flag_error_email=TRUE;
+    }
     //Décodage
  //Fonctions de décodage json et base64 : https://www.php.net/manual/fr/function.json-decode.php et https://www.php.net/manual/fr/function.base64-decode.php
 
 //    $grade = ($_POST['grade']);//Transformation en valeur numérique 
         $grade = gradeDecode($_POST['grade']);//Transformation en valeur numérique et décryptage 
-        $_SESSION['success'] = __('Grade found = '.$toto." and ".$grade." Code TAC = ".$codeTAC);
+        $message="";
+        if($flag_error_email){
+            $message="email error";
+        }
+        $_SESSION['success'] = __('Grade found = '.$toto." and ".$grade." Code TAC = ".$codeTAC." ".$message);
 
 //$grade = 0.23;
     //$RESULT->gradeSend($grade, false);//Ecriture de la note dans le bulletin de note du LMS
@@ -170,10 +182,12 @@ $OUTPUT->header();
 $OUTPUT->bodyStart();
 $OUTPUT->topNav($menu);
 
-echo "Le code JSON est : ".$codeJSON."<br>";
-echo "encrytage du JSON  : ".$codeJSON_CRYP."<br>";
+if($debug){echo "Le code JSON est : ".$codeJSON."<br>";}
+if($debug){echo "encrytage du JSON  : ".$codeJSON_CRYP."<br>";}
+echo (__("Click on the button below to copy the code to paste into the Topaze application")."<br>");
 echo "<input type='text' value='".$codeJSON_CRYP."' id='myInput'  disabled='disabled'>"; //Le champ texte à afficher
-echo "<button onclick='myFunction()' id='myButton'>Copy text</button>";//Le bouton pour copier le texte
+$text_button = __('Copy text');
+echo "<button onclick='myFunction()' id='myButton'>".$text_button."</button>";//Le bouton pour copier le texte
 
 //**************Instructor Affichage du formulaire de réglages **************/
 if ( $USER->instructor ) {
@@ -220,8 +234,6 @@ if ( $USER->instructor ) {
     echo(__("Your grade is : ").$RESULT->grade."<br>");//AJOUT ED 2020
     echo(__("Topaze Application URL : ")."<a href='".$urlTAU."'>".__("click to access your application")."</a>"."<br>" );
     echo('<form method="post">');
-  //  echo(_("Enter code:")."\n");
-  //  echo('<input type="text" name="code" value=""> ');
     echo(_("Enter coded grade :")."\n");
    echo('<input type="text" name="grade" value=""> '); //AJOUT ED 2020
     echo('<input type="submit" class="btn btn-normal" name="set" value="'.__('Record your code').'"><br/>');

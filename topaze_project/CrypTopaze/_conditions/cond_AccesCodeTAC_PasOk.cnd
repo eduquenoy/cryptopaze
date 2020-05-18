@@ -3,7 +3,7 @@
 	<opa:cond xmlns:opa="kelis.fr:opa" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
 		<sp:calculated>
 			<opa:condCalc>
-				<sp:left sc:refUri="/CrypTopaze/_indicateurs/IndicateurBase64Decode_AccessCode_JS.ind"/>
+				<sp:left sc:refUri="/CrypTopaze/_indicateurs/Indicateur_codeTAC_Validation.ind"/>
 				<sp:op>=</sp:op>
 				<sp:right>0</sp:right>
 			</opa:condCalc>

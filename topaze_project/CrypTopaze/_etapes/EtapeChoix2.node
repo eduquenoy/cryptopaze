@@ -16,7 +16,7 @@
 							<op:res>
 								<sp:txt>
 									<op:txt>
-										<sc:para xml:space="preserve"><sc:objectLeaf role="varDisplay" sc:refUri="/CrypTopaze/_variables/VariableBase64Decode_DisplayName_JS.ind"/></sc:para>
+										<sc:para xml:space="preserve"><sc:objectLeaf role="varDisplay" sc:refUri="/CrypTopaze/_variables/VariableDecode_DisplayName_JS.ind"/></sc:para>
 									</op:txt>
 								</sp:txt>
 							</op:res>
@@ -77,7 +77,7 @@
 					<opa:arcLnkCondM>
 						<sp:cond>
 							<opa:condCalc>
-								<sp:left sc:refUri="/CrypTopaze/_indicateurs/IndicateurBase64Decode_AccessCode_JS.ind"/>
+								<sp:left sc:refUri="/CrypTopaze/_indicateurs/Indicateur_codeTAC_Validation.ind"/>
 								<sp:op>=</sp:op>
 								<sp:right>1</sp:right>
 							</opa:condCalc>

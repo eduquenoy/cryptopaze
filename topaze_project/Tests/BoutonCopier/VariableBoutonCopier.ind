@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:autoVar xmlns:opa="kelis.fr:opa" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:autoVarM>
+			<sp:title/>
+		</opa:autoVarM>
+		<sp:js>
+			<opa:autoVarJs>
+				<sc:para xml:space="preserve">function myFunction() {</sc:para>
+				<sc:para xml:space="preserve">/* Get the text field */</sc:para>
+				<sc:para xml:space="preserve">var copyText = document.getElementById("myInput");</sc:para>
+				<sc:para xml:space="preserve">/* Select the text field */</sc:para>
+				<sc:para xml:space="preserve">copyText.select();</sc:para>
+				<sc:para xml:space="preserve">copyText.setSelectionRange(0, 99999); /*For mobile devices*/</sc:para>
+				<sc:para xml:space="preserve">/* Copy the text inside the text field */</sc:para>
+				<sc:para xml:space="preserve">//document.execCommand("copy");</sc:para>
+				<sc:para xml:space="preserve">textToClipboard(copyText.value);</sc:para>
+				<sc:para xml:space="preserve">/* Alert the copied text */</sc:para>
+				<sc:para xml:space="preserve">alert("Copied the text: " + copyText.value);</sc:para>
+				<sc:para xml:space="preserve">}</sc:para>
+				<sc:para xml:space="preserve">function textToClipboard (text) {</sc:para>
+				<sc:para xml:space="preserve">var dummy = document.createElement("textarea");</sc:para>
+				<sc:para xml:space="preserve">document.body.appendChild(dummy);</sc:para>
+				<sc:para xml:space="preserve">dummy.value = text;</sc:para>
+				<sc:para xml:space="preserve">dummy.select();</sc:para>
+				<sc:para xml:space="preserve">document.execCommand("copy");</sc:para>
+				<sc:para xml:space="preserve">document.body.removeChild(dummy);</sc:para>
+				<sc:para xml:space="preserve">}</sc:para>
+			</opa:autoVarJs>
+		</sp:js>
+	</opa:autoVar>
+</sc:item>

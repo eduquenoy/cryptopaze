@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<opa:autoIndex xmlns:opa="kelis.fr:opa" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<opa:autoIndexM>
+			<sp:title>Validation du code TAC reçu</sp:title>
+		</opa:autoIndexM>
+		<sp:js>
+			<opa:autoIndexJs>
+				<sc:para xml:space="preserve">//Ce script valide le code TAC reçu</sc:para>
+				<sc:para xml:space="preserve">//Récupération du code TAC interne</sc:para>
+				<sc:para xml:space="preserve">recordedTAC = <sc:objectLeaf role="inputVar" sc:refUri="/CrypTopaze/_variables/Variable_codeTAC.ind"/>;</sc:para>
+				<sc:para xml:space="preserve">//Récupération du code soumis par l'usager</sc:para>
+				<sc:para xml:space="preserve">var myJson = <sc:objectLeaf role="inputVar" sc:refUri="/CrypTopaze/_variables/VariableBase64_Decode.ind"/>;</sc:para>
+				<sc:para xml:space="preserve">if(myJson == 'error' || myJson == null){</sc:para>
+				<sc:para xml:space="preserve"> console.log("error from json decode") ;</sc:para>
+				<sc:para xml:space="preserve"> return 0 ;</sc:para>
+				<sc:para xml:space="preserve">}</sc:para>
+				<sc:para xml:space="preserve">else {</sc:para>
+				<sc:para xml:space="preserve"> if(recordedTAC == myJson.codeTAC){</sc:para>
+				<sc:para xml:space="preserve">  return 1 ;</sc:para>
+				<sc:para xml:space="preserve"> }</sc:para>
+				<sc:para xml:space="preserve"> else{</sc:para>
+				<sc:para xml:space="preserve">  return 0 ;</sc:para>
+				<sc:para xml:space="preserve"> }</sc:para>
+				<sc:para xml:space="preserve">}</sc:para>
+			</opa:autoIndexJs>
+		</sp:js>
+	</opa:autoIndex>
+</sc:item>

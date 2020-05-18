@@ -7,6 +7,7 @@
 		<sp:js>
 			<opa:autoVarJs>
 				<sc:para xml:space="preserve">//VariableBase64Decode</sc:para>
+				<sc:para xml:space="preserve">//Cette fonction renvoie la chaine json complète ou un message d'erreur ou null.</sc:para>
 				<sc:para xml:space="preserve">var myJson ="" ;</sc:para>
 				<sc:para xml:space="preserve">var code64 = <sc:objectLeaf role="inputVar" sc:refUri="/CrypTopaze/_variables/VariableAccessCode.ind"/>;//Réception de la chaine JSON codée</sc:para>
 				<sc:para xml:space="preserve">if(code64 == "" || IsBase64String(code64) === 0){</sc:para>

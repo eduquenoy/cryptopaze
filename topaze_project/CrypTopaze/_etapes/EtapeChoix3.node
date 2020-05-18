@@ -16,7 +16,65 @@
 							<op:res>
 								<sp:txt>
 									<op:txt>
-										<sc:para xml:space="preserve"><sc:objectLeaf role="varDisplay" sc:refUri="/CrypTopaze/_variables/VariableBase64Decode_DisplayName_JS.ind"/></sc:para>
+										<sc:para xml:space="preserve"><sc:objectLeaf role="varDisplay" sc:refUri="/CrypTopaze/_variables/VariableDecode_DisplayName_JS.ind"/></sc:para>
+									</op:txt>
+								</sp:txt>
+							</op:res>
+						</sp:info>
+						<sp:info>
+							<op:pbTi>
+								<sp:title>Votre email</sp:title>
+							</op:pbTi>
+							<op:res>
+								<sp:txt>
+									<op:txt>
+										<sc:para xml:space="preserve"><sc:objectLeaf role="varDisplay" sc:refUri="/CrypTopaze/_variables/VariableDecode_email_JS.ind"/></sc:para>
+									</op:txt>
+								</sp:txt>
+							</op:res>
+						</sp:info>
+						<sp:info>
+							<op:pbTi>
+								<sp:title>codeTAC</sp:title>
+							</op:pbTi>
+							<op:res>
+								<sp:txt>
+									<op:txt>
+										<sc:para xml:space="preserve"><sc:objectLeaf role="varDisplay" sc:refUri="/CrypTopaze/_variables/VariableDecode_codeTAC_JS.ind"/></sc:para>
+									</op:txt>
+								</sp:txt>
+							</op:res>
+						</sp:info>
+						<sp:info>
+							<op:pbTi>
+								<sp:title>Analyse du code</sp:title>
+								<sp:cond>
+									<opa:condBlock>
+										<sp:cond sc:refUri="/CrypTopaze/_conditions/cond_AccesCodeTAC_Ok.cnd"/>
+									</opa:condBlock>
+								</sp:cond>
+							</op:pbTi>
+							<op:res>
+								<sp:txt>
+									<op:txt>
+										<sc:para xml:space="preserve">Ok, c'est bon</sc:para>
+									</op:txt>
+								</sp:txt>
+							</op:res>
+						</sp:info>
+						<sp:info>
+							<op:pbTi>
+								<sp:title>Analyse du code</sp:title>
+								<sp:cond>
+									<opa:condBlock>
+										<sp:cond sc:refUri="/CrypTopaze/_conditions/cond_AccesCodeTAC_PasOk.cnd"/>
+									</opa:condBlock>
+								</sp:cond>
+							</op:pbTi>
+							<op:res>
+								<sp:txt>
+									<op:txt>
+										<sc:para xml:space="preserve">Le code n'est pas bon</sc:para>
 									</op:txt>
 								</sp:txt>
 							</op:res>
